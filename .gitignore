@@ -1,0 +1,18 @@
+# .NET build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Runtime game data
+data/leaderboard.json
+data/replays/
+
+# OS files
+.DS_Store
+Thumbs.db

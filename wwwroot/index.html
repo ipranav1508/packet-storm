@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Packet Storm</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="cv" width="1920" height="1200"></canvas>
+
+    <div id="hud" class="hidden">
+      <div class="hud-row">
+        <div class="hud-block"><label>Wave</label><b id="hWave">0/30</b></div>
+        <div class="hud-block grow">
+          <label>Core integrity</label>
+          <div class="meter"><i id="hCore"></i></div>
+        </div>
+        <div class="hud-block"><label>Credits</label><b id="hCredits" class="gold">0</b></div>
+        <div class="hud-block"><label>Score</label><b id="hScore">0</b></div>
+        <div class="hud-block"><label>Kills</label><b id="hKills">0</b></div>
+        <div id="liveTools">
+          <button id="btnFlush" class="tool" title="Flush (Space): EMP burst at your cursor"><span class="fill" id="flushFill"></span><span class="lbl">FLUSH <kbd>Space</kbd></span></button>
+          <button id="btnNext" class="tool" title="Call the next wave early for bonus credits (N)">NEXT WAVE <kbd>N</kbd></button>
+          <button id="btnPause" class="tool" title="Pause (P)">❚❚</button>
+          <button id="btnMute" class="tool" title="Mute (M)">♪</button>
+        </div>
+        <div id="replayTools" class="hidden">
+          <span class="tag">REPLAY</span>
+          <button class="tool spd" data-speed="1">1×</button>
+          <button class="tool spd" data-speed="2">2×</button>
+          <button class="tool spd" data-speed="4">4×</button>
+          <button class="tool spd" data-speed="8">8×</button>
+          <button class="tool" id="btnReplayPause">❚❚</button>
+          <button class="tool" id="btnExit">EXIT</button>
+        </div>
+      </div>
+      <div id="incoming"></div>
+    </div>
+
+    <div id="shop" class="hidden"></div>
+    <div id="towerPanel" class="hidden"></div>
+    <div id="toast"></div>
+
+    <div id="menu" class="overlay">
+      <div class="card">
+        <h1>PACKET<span>STORM</span></h1>
+        <p class="tag-line">Defend the cluster. Build the stack. Aim the cannon. Survive 30 waves.</p>
+        <div class="two">
+          <div>
+            <label>Callsign</label><input id="inName" maxlength="20" placeholder="Operator">
+            <label>Seed <small>(optional, same seed = same attack waves)</small></label><input id="inSeed" inputmode="numeric" placeholder="random">
+            <button class="btn big" id="btnPlay">DEPLOY</button>
+            <ul class="how">
+              <li><b>Hold click</b> in open space to fire your patch cannon. Lead your shots.</li>
+              <li><kbd>1</kbd>-<kbd>4</kbd> pick a tower, click a glowing pad to build. <kbd>Esc</kbd> / right-click cancels.</li>
+              <li>Click a tower to <kbd>U</kbd>pgrade or <kbd>S</kbd>ell it.</li>
+              <li><kbd>Space</kbd> flush: EMP at your cursor. <kbd>N</kbd> calls the next wave early.</li>
+              <li>SQL injections shrug off firewalls: bring a WAF. Zero-days ignore rate limiters.</li>
+            </ul>
+          </div>
+          <div>
+            <label>Top runs <small>(server re-simulates replays to verify)</small></label>
+            <div id="board" class="board">Loading…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="over" class="overlay hidden">
+      <div class="card narrow" id="overCard"></div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

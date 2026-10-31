@@ -1,0 +1,7 @@
+bin/
+obj/
+data/leaderboard.json
+data/replays/
+.git/
+docs/
+*.md
