@@ -15,7 +15,7 @@ Build a defensive stack, aim a patch cannon by hand, and survive 30 waves of inc
 ![Dependencies](https://img.shields.io/badge/NuGet%20packages-0-4dff9a)
 ![LLM](https://img.shields.io/badge/LLM%20%2F%20external%20APIs-none-3de0ff)
 
-### 🎮 [Play it live](https://YOUR-APP.onrender.com) <!-- replace with your real URL after deploying -->
+### 🎮 [Play it live](https://packet-storm.onrender.com/) 
 
 **No game engine. No external APIs. No third-party NuGet packages.**
 Just C#, .NET 8, WebSockets and Canvas 2D.
